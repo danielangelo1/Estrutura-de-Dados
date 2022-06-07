@@ -84,7 +84,7 @@ int Pesquisar(TFila fila, TProduto x)
    TCelula* Aux;
    Aux = fila.frente;
    while(Aux->prox != NULL){
-      if(Aux->prox->item.codigo == x.codigo)
+      if(Aux->prox->item.codigo == x.codigo);
          return 1;
       Aux = Aux->prox;
    }

@@ -49,11 +49,12 @@ int main(){
             printf("\nDigite o codigo do produto a ser procurado: ");
             fflush(stdin);
             scanf("%d", &item.codigo);
-            if(Pesquisar(fila, item)== 1)
+            if(Pesquisar(fila, item)== 1){
                 printf("\nProduto Encontrado na Fila!\n");
+                ImprimirProduto(item);
+            }
             else
                 printf("\nProduto nao encontrado na  Fila!\n");
-
             
             system("PAUSE");
             break;
