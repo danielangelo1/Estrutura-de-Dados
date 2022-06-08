@@ -11,7 +11,7 @@ void FFVazia(TFila *Fila)
     Fila->tamanho = 0;
 }
 
-int Vazia(TFila Fila)
+int FVazia(TFila Fila)
 {
     return (Fila.frente == Fila.tras);
 }
@@ -62,7 +62,7 @@ void ImprimirProduto(TProduto item)
 
 }
 
-void Imprimir(TFila Filas){
+void ImprimirFila(TFila Filas){
     TCelula* Aux;
     Aux = Filas.frente -> prox;
     printf("Fila:\n");
@@ -79,7 +79,7 @@ void Imprimir(TFila Filas){
     }
 }
 
-int Pesquisar(TFila fila, TProduto x)
+int PesquisarFila(TFila fila, TProduto x)
 {
    TCelula* Aux;
    Aux = fila.frente;

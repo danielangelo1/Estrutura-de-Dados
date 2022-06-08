@@ -49,7 +49,7 @@ int main(){
             printf("\nDigite o codigo do produto a ser procurado: ");
             fflush(stdin);
             scanf("%d", &item.codigo);
-            if(Pesquisar(fila, item)== 1){
+            if(PesquisarFila(fila, item)== 1){
                 printf("\nProduto Encontrado na Fila!\n");
                 ImprimirProduto(item);
             }
@@ -61,7 +61,7 @@ int main(){
 
         case 4:
             system("cls");
-            Imprimir(fila);
+            ImprimirFila(fila);
             system("PAUSE");
             break;
 

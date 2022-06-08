@@ -27,19 +27,19 @@ typedef struct fila
 
 void FFVazia(TFila *Fila);
 
-int Vazia(TFila Fila);
+int FVazia(TFila Fila);
 
 void Enfileirar(TProduto x, TFila *Fila);
 
 void Desenfileirar(TFila *Fila, TProduto *Item);
 
-void Imprimir(TFila Fila);
+void ImprimirFila(TFila Fila);
 
 void LerProduto(TProduto *item);
 
 void ImprimirProduto(TProduto item);
 
-int Pesquisar(TFila fila, TProduto x);
+int PesquisarFila(TFila fila, TProduto x);
 
 void LiberarFila(TFila *fila);
 
