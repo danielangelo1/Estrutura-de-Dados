@@ -26,15 +26,15 @@ typedef struct {
 
 void FLVazia(TLista *Lista);
 
-int Vazia(TLista Lista);
+int LVazia(TLista Lista);
 
 void Inserir(TProduto x, TLista *Lista);
 
-TCelula* Pesquisar(TLista Lista, TProduto Item);
+TCelula* PesquisarLista(TLista Lista, TProduto Item);
 
 void Excluir(TLista *Lista, TProduto *Item);
 
-void Imprimir(TLista Lista);
+void ImprimirLista(TLista Lista);
 
 void ImprimirProduto(TProduto item);
 

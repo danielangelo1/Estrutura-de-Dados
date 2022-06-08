@@ -44,7 +44,7 @@ int main()
             printf("\nDigite o codigo do produto a ser procurado: ");
             fflush(stdin);
             scanf("%d", &item.codigo);
-            Aux = Pesquisar(lista, item);
+            Aux = PesquisarLista(lista, item);
             if(Aux == NULL){
                 printf("\nProduto nao encontrado!\n");
             }else{
@@ -58,7 +58,7 @@ int main()
             fflush(stdin);
             scanf("%d", &item.codigo);
 
-            Aux = Pesquisar(lista, item);
+            Aux = PesquisarLista(lista, item);
             if(Aux == NULL){
                 printf("\nProduto nao encontrado!\n");
             }else{
@@ -77,7 +77,7 @@ int main()
             break;
         case 5:
             system("cls");
-            Imprimir(lista);
+            ImprimirLista(lista);
             system("PAUSE");
             break;
         case 6:

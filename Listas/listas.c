@@ -12,7 +12,7 @@ void FLVazia(TLista *Lista){
 }
 
 // passagem de parâmetro por valor: a alteração NÃO é permanente!
-int Vazia(TLista Lista){
+int LVazia(TLista Lista){
   return (Lista.primeiro == Lista.ultimo);
 }
 
@@ -25,7 +25,7 @@ void Inserir(TProduto x, TLista *Lista){
   Lista -> tamanho++;
 }
 
-TCelula* Pesquisar(TLista Lista, TProduto Item){
+TCelula* PesquisarLista(TLista Lista, TProduto Item){
    TCelula* Aux;
    Aux = Lista.primeiro;
    while(Aux->prox != NULL){
@@ -51,7 +51,7 @@ void Excluir(TLista *Lista, TProduto *Item){
   }
 }
 
-void Imprimir(TLista Lista){
+void ImprimirLista(TLista Lista){
   TCelula* Aux;
   Aux = Lista.primeiro -> prox;
   while (Aux != NULL){
