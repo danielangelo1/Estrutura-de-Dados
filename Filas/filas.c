@@ -28,7 +28,7 @@ void Enfileirar(TProduto x, TFila *Fila)
 
 void Desenfileirar(TFila *Fila, TProduto *Item){
     TCelula* aux;
-    if (!Vazia(*Fila)){
+    if (!FVazia(*Fila)){
         aux = Fila->frente->prox;
         Fila->frente->prox = aux->prox;
         *Item = aux->item;
@@ -62,22 +62,22 @@ void ImprimirProduto(TProduto item)
 
 }
 
-void ImprimirFila(TFila Filas){
-    TCelula* Aux;
-    Aux = Filas.frente -> prox;
-    printf("Fila:\n");
-    if(Aux != NULL)
-    {
-        while(Aux != NULL)
-        {
-                ImprimirProduto(Aux->item);
-                 Aux = Aux -> prox;
-        }
-    }else{
-        printf("Fila vazia.\n");
-        return;
-    }
+void ImprimirFila(TFila Fila){
+   TFila Faux; TProduto x;
+   FFVazia(&Faux);
+   while(!FVazia(Fila)){
+       Desenfileirar(&Fila, &x);
+       ImprimirProduto(x);
+       Enfileirar(x, &Faux);
+   }
+   while ((!FVazia(Faux)))
+   {
+       Desenfileirar(&Faux, &x);
+       Enfileirar(x, &Fila);
+   }
+   free(Faux.frente);
 }
+   
 
 int PesquisarFila(TFila fila, TProduto x)
 {
@@ -94,14 +94,11 @@ int PesquisarFila(TFila fila, TProduto x)
 
 void LiberarFila(TFila *fila)
 {
-    TCelula* Aux = fila->frente;
-
-    while(Aux != NULL){
-        TCelula* Aux2 = Aux->prox;
-        free(Aux);
-        Aux = Aux2;
+    TProduto x;
+    while(!FVazia(*fila)){
+        Desenfileirar(fila, &x);
     }
-    free(fila);
+    free(fila->frente);
 }
 
 

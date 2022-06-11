@@ -39,7 +39,7 @@ TCelula* PesquisarLista(TLista Lista, TProduto Item){
 void Excluir(TLista *Lista, TProduto *Item){
   /* Obs.: o item a ser retirado e o apontado por p */
   TCelula *Aux1, *Aux2;
-  Aux1 = Pesquisar(*Lista, *Item);
+  Aux1 = PesquisarLista(*Lista, *Item);
   if (Aux1 != NULL) {
      Aux2 = Aux1->prox;
      Aux1->prox = Aux2 -> prox;
@@ -89,13 +89,21 @@ void LerProduto(TProduto *item){
 
 void Alterar(TLista* lista, TProduto item){
   TCelula *Aux;
-  Aux = Pesquisar(*lista, item);
+  Aux = PesquisarLista(*lista, item);
   if( Aux == NULL){
       printf("\nProduto nao encontrado!\n");
   }else{
     Excluir(lista, &item);
     LerProduto(&item);
     Inserir(item, lista);
+  }
+
+  void LiberarLista(TLista *Lista){
+    while ((!LVazia(*lista)))
+    {
+      Excluir(Lista, &Lista->primeiro->item);
+    }
+    free(Lista->primeiro);
   }
 
 }
