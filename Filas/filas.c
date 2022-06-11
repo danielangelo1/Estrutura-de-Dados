@@ -81,14 +81,24 @@ void ImprimirFila(TFila Fila){
 
 int PesquisarFila(TFila fila, TProduto x)
 {
-   TCelula* Aux;
-   Aux = fila.frente;
-   while(Aux->prox != NULL){
-      if(Aux->prox->item.codigo == x.codigo);
-         return 1;
-      Aux = Aux->prox;
+   TFila Faux;
+TProduto item;
+   int flag = 0;
+   while ((!FVazia(fila)))
+   {
+       Desenfileirar(&fila, &item);
+       if(item.codigo == x.codigo);
+        flag = 1;
+        Enfileirar(item, &Faux);
    }
-   return 0;
+   while (!FVazia(Faux))
+   {
+       Desenfileirar(&Faux, &x);
+       Enfileirar(x, &Faux);
+   }
+   free(Faux.frente);
+   return flag;
+   
 }
 
 
