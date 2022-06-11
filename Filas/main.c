@@ -2,18 +2,19 @@
 #include <stdlib.h>
 #include "filas.h"
 
-void MSG_MENU(){
+void MSG_MENU()
+{
     printf("\n******************** MENU ********************");
     printf("\n\t 1. ENFILEIRAR");
     printf("\n\t 2. DESENFILEIRAR");
     printf("\n\t 3. PESQUISAR");
     printf("\n\t 4. IMPRIMIR");
     printf("\n\t 5. SAIR");
-
 }
 
-int main(){
-    //Declaracao de variaveis:
+int main()
+{
+    // Declaracao de variaveis:
     TFila fila;
     TProduto item;
 
@@ -21,7 +22,8 @@ int main(){
     FFVazia(&fila);
 
     int opcao = 0;
-    do{
+    do
+    {
         system("cls");
         MSG_MENU();
         printf("\n\n DIGITE UMA OPCAO:");
@@ -40,7 +42,13 @@ int main(){
 
         case 2:
             system("cls");
-            Desenfileirar(&fila, &item);
+            if (!FVazia(fila))
+            {
+                Desenfileirar(&fila, &item);
+                printf("Produto Desenfileirado com sucesso\n");
+            }
+            else
+                printf("\nFila vazia, nao ha nada para desenfileirar.\n");
             system("PAUSE");
             break;
 
@@ -49,13 +57,7 @@ int main(){
             printf("\nDigite o codigo do produto a ser procurado: ");
             fflush(stdin);
             scanf("%d", &item.codigo);
-            if(PesquisarFila(fila, item)== 1){
-                printf("\nProduto Encontrado na Fila!\n");
-                ImprimirProduto(item);
-            }
-            else
-                printf("\nProduto nao encontrado na  Fila!\n");
-            
+            PesquisarFila(fila, item);
             system("PAUSE");
             break;
 
@@ -79,8 +81,6 @@ int main(){
         }
     } while (opcao != 5);
 
-   LiberarFila(&fila);   
-   return 0;
-
-    
+    LiberarFila(&fila);
+    return 0;
 }

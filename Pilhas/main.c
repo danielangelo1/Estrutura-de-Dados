@@ -49,7 +49,7 @@ int main(){
             printf("\nDigite o codigo do produto a ser procurado: ");
             fflush(stdin);
             scanf("%d", &item.codigo);
-            if(PesquisarPilha(pilha,item) == 1)
+            if(PesquisarPilha(pilha, item) == 1)
             {
                 printf("\nProduto Encontrado na Pilha!\n");
                 ImprimirProduto(item);

@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include "listas.h"
 
-void MSG_MENU(){
+void MSG_MENU()
+{
     printf("\n******************** MENU ***********************");
-    printf("\n\t1. INSERIR"); // done
+    printf("\n\t1. INSERIR");   // done
     printf("\n\t2. PESQUISAR"); // done
-    printf("\n\t3. EXCLUIR"); //done
-    printf("\n\t4. ALTERAR");
-    printf("\n\t5. IMPRIMIR"); //done 
-    printf("\n\t6. SAIR"); //done
+    printf("\n\t3. EXCLUIR");   // done
+    printf("\n\t4. ALTERAR");   // done
+    printf("\n\t5. IMPRIMIR");  // done
+    printf("\n\t6. SAIR");      // done
 }
 
 int main()
@@ -31,7 +32,7 @@ int main()
         fflush(stdin);
         scanf("%d", &opcao);
 
-        switch(opcao)
+        switch (opcao)
         {
         case 1:
             system("cls");
@@ -45,9 +46,12 @@ int main()
             fflush(stdin);
             scanf("%d", &item.codigo);
             Aux = PesquisarLista(lista, item);
-            if(Aux == NULL){
+            if (Aux == NULL)
+            {
                 printf("\nProduto nao encontrado!\n");
-            }else{
+            }
+            else
+            {
                 ImprimirProduto(Aux->prox->item);
             }
             system("PAUSE");
@@ -59,11 +63,14 @@ int main()
             scanf("%d", &item.codigo);
 
             Aux = PesquisarLista(lista, item);
-            if(Aux == NULL){
+            if (Aux == NULL)
+            {
                 printf("\nProduto nao encontrado!\n");
-            }else{
+            }
+            else
+            {
                 Excluir(&lista, &item);
-             printf("\nProduto excluido com sucesso!\n");
+                printf("\nProduto excluido com sucesso!\n");
             }
             system("PAUSE");
             break;
@@ -88,8 +95,7 @@ int main()
             system("cls");
             system("PAUSE");
         }
-    } while(opcao != 6);
+    } while (opcao != 6);
 
     return 0;
 }
- 

@@ -12,13 +12,13 @@ typedef struct item
 typedef struct celula
 {
     TProduto item;
-    struct celula* prox;
+    struct celula *prox;
 } TCelula;
 
 typedef struct fila
 {
-    TCelula* frente;
-    TCelula* tras;
+    TCelula *frente;
+    TCelula *tras;
     int tamanho;
 } TFila;
 
@@ -42,6 +42,5 @@ void ImprimirProduto(TProduto item);
 int PesquisarFila(TFila fila, TProduto x);
 
 void LiberarFila(TFila *fila);
-
 
 #endif // FILA_H_INCLUDED
