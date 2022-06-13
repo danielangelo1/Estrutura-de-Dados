@@ -57,7 +57,11 @@ int main()
             printf("\nDigite o codigo do produto a ser procurado: ");
             fflush(stdin);
             scanf("%d", &item.codigo);
-            PesquisarFila(fila, item);
+            if(PesquisarFila(fila, item) ==1)
+                ImprimirProduto(item);
+            else
+                printf("\nProduto nao econtrado!\n");
+                
             system("PAUSE");
             break;
 

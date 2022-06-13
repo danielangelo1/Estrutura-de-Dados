@@ -3,22 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "util.h"
 
-typedef struct produto{
-    int codigo;
-    char nome[100];
-    char descricao[100];
-    double preco;
-    int unidade;
-} TProduto;
-
-typedef struct celula{
-    TProduto item;
-    struct celula *prox;
-} TCelula;
-
-
-typedef struct {
+typedef struct lista{
   TCelula *primeiro;
   TCelula *ultimo;
   int tamanho;
@@ -36,13 +23,8 @@ void Excluir(TLista *Lista, TProduto *Item);
 
 void ImprimirLista(TLista Lista);
 
-void ImprimirProduto(TProduto item);
-
-void LerProduto(TProduto *item);
-
 void Alterar(TLista *Lista, TProduto item );
 
 void LiberarLista(TLista * Lista);
-
 
 #endif // LISTA_H_INCLUDED

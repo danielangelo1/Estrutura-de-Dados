@@ -40,7 +40,11 @@ int main(){
 
         case 2:
             system("cls");
-            Desempilhar(&pilha, &item);
+            if(!PVazia(pilha)){
+                Desempilhar(&pilha, &item);
+                printf("\nProduto desempilhado com sucesso!\n");
+            }else
+                printf("\nPilha vazia.\n");
             system("PAUSE");
             break;
 

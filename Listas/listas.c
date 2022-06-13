@@ -113,13 +113,13 @@ void Alterar(TLista *lista, TProduto item)
     LerProduto(&item);
     Inserir(item, lista);
   }
+}
 
   void LiberarLista(TLista * Lista)
   {
-    while ((!LVazia(*lista)))
+    while ((!LVazia(*Lista)))
     {
       Excluir(Lista, &Lista->primeiro->item);
     }
     free(Lista->primeiro);
   }
-}

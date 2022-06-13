@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include "pilhas.h"
+#include "Pilhas.h"
 
 void FPVazia(TPilha *Pilha)
 {
@@ -31,6 +31,11 @@ void Empilhar(TProduto x, TPilha *Pilha)
 void Desempilhar(TPilha *Pilha, TProduto *Item)
 {
   TCelula *q;
+  if (PVazia(*Pilha))
+  {
+    printf("Erro: lista vazia\n");
+    return;
+  }
   q = Pilha->topo;
   Pilha->topo = q->prox;
   *Item = q->prox->item;
@@ -63,13 +68,6 @@ void ImprimirPilha(TPilha *Pilha)
   free(PilhaAux.topo); // eliminar a célula cabeça
 }
 
-void ImprimirProduto(TProduto item)
-{
-  printf("\n CODIGO do produto: %d", item.codigo);
-  printf("\n NOME do produto: %s", item.nome);
-  printf("\n PRECO do produto: %.2f\n", item.preco);
-}
-
 int PesquisarPilha(TPilha pilha, TProduto x)
 {
   TPilha Paux;
@@ -96,19 +94,6 @@ int PesquisarPilha(TPilha pilha, TProduto x)
   }
   free(Paux.topo);
   return flag;
-}
-
-void LerProduto(TProduto *item)
-{
-  printf("\nDIGITE O CODIGO DO PRODUTO: ");
-  fflush(stdin);
-  scanf("%d", &item->codigo);
-  printf("\nDIGITE O NOME DO PRODUTO: ");
-  fflush(stdin);
-  fgets(item->nome, 100, stdin);
-  printf("\nDIGITE O PRECO DO PRODUTO: ");
-  fflush(stdin);
-  scanf("%lf", &item->preco);
 }
 
 void LiberarPilha(TPilha *Pilha)
